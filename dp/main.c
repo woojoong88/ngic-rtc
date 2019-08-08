@@ -12,6 +12,7 @@
 #include <rte_ether.h>
 #include <rte_mbuf.h>
 #include <rte_branch_prediction.h>
+#include <rte_pdump.h>
 
 #include "main.h"
 #include "interface.h"
@@ -25,6 +26,7 @@
 int main(int argc, char **argv)
 {
 	int ret;
+	int ret_pdump;
 
 	/* Initialize the Environment Abstraction Layer */
 	ret = rte_eal_init(argc, argv);
@@ -37,6 +39,10 @@ int main(int argc, char **argv)
 		rte_exit(EXIT_FAILURE, "Error:can't catch SIGSEGV\n");
 	argc -= ret;
 	argv += ret;
+
+	ret_pdump = rte_pdump_init("/tmp");
+
+	RTE_LOG_DP(DEBUG, DP, "PDUMP: %d\n", ret_pdump);
 
 	/* DP Init */
 	dp_init(argc, argv);

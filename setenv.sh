@@ -3,7 +3,7 @@
 # Copyright(c) 2017 Intel Corporation
 
 NG_CORE=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-RTE_SDK=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/dpdk
+RTE_SDK=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/third_party/dpdk
 HYPERSCAN_DIR="$(pwd)/hyperscan-4.1.0"
 
 export NG_CORE=$NG_CORE
